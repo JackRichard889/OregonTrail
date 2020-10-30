@@ -1,11 +1,11 @@
 from typing import Union
 
 class Wagon:
-  def __init__(self, inventory_size: int):
+  def __init__(self, inventory_size: int, party: list):
     self.inventory: list = []
     self.__max_inventory_size: int = inventory_size
-    self.oxen: list = []
-    self.party: list = []
+    self.__oxen: list = []
+    self.__party: list = []
   def add_item(self) -> bool:
     pass
   def find_item() -> bool:
