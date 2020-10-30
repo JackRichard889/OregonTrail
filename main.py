@@ -1,5 +1,4 @@
 import pygame
-from date import Date
 
 WIDTH, HEIGHT = 500, 500
 
@@ -8,16 +7,14 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Oregon Trail 2020 Remastered Ultimate Edition")
 clock = pygame.time.Clock()
 
-all_sprites = pygame.sprite.Group()
-
 WHITE = (255, 255, 255)
-background = (1, 1, 1)
+background = (0, 0, 0)
 
 screen.fill(background)
 
 font = pygame.font.Font('font/font.ttf', 29)
-img = font.render('The Oregon Trail', True, WHITE)#Text, N/A, Color
-screen.blit(img, (24, 20))#what to display, position.
+img = font.render('The Oregon Trail', True, WHITE)
+screen.blit(img, (24, 20))
 
 def main():
   running = True
@@ -28,8 +25,7 @@ def main():
     pygame.display.update()
     clock.tick(60)
 
+pygame.quit()
+
 if __name__ == "__main__":
   main()
-
-# testing from VSCode
-# new one
