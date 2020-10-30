@@ -15,9 +15,9 @@ background = (1, 1, 1)
 
 screen.fill(background)
 
-font = pygame.font.Font('font/font.ttf', 30)
+font = pygame.font.Font('font/font.ttf', 29)
 img = font.render('The Oregon Trail', True, WHITE)#Text, N/A, Color
-screen.blit(img, (20, 20))#what to display, position.
+screen.blit(img, (24, 20))#what to display, position.
 
 def main():
   running = True
