@@ -92,7 +92,7 @@ class Date:
       raise NoDateException("FATAL! No date provided!")
       return None
     if weather is None:
-      raise Exception("WHYYYYYYYY")
+      raise Exception("FATAL! No weather provided!")
       return None
     return weathers[weather]
 
