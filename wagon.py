@@ -6,7 +6,7 @@ class Wagon:
     self.__max_inventory_size: int = inventory_size
     self.oxen: list = []
     self.party: list = []
-  def add_item(self, ) -> bool:
+  def add_item(self) -> bool:
     pass
   def find_item() -> bool:
     pass
@@ -30,3 +30,6 @@ class ItemStack():
       return self.__itemtype
     else:
       return None
+
+class TestItem():
+  pass
