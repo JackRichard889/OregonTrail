@@ -8,6 +8,9 @@ from random import randint
 #     by Jack Richard           #
 #################################
 
+class NoDateException(Exception):
+  # throw when date is None
+  pass
 
 class Date:
   class Season:
@@ -36,7 +39,7 @@ class Date:
 
   def get_date(self):
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
     return self.date
 
   def get_formatted_date(self):
@@ -44,7 +47,7 @@ class Date:
           5: "May", 6: "June", 7: "July", 8: "August",
           9: "September", 10: "October", 11: "November", 12: "December"}
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return None
     return months[self.date.month] + self.date.strftime(' %d, %Y')
 
@@ -53,7 +56,7 @@ class Date:
               5: Date.Season.SPRING, 6: Date.Season.SPRING, 7: Date.Season.SUMMER, 8: Date.Season.SUMMER,
               9: Date.Season.FALL, 10: Date.Season.FALL, 11: Date.Season.FALL, 12: Date.Season.WINTER}
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return None
     return season_for_month[self.date.month]
 
@@ -61,10 +64,10 @@ class Date:
     seasons = {Date.Season.WINTER: "Winter", Date.Season.FALL: "Fall",
            Date.Season.SPRING: "Spring", Date.Season.SUMMER: "Summer"}
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return None
     if season is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return None
     return seasons[season]
 
@@ -86,10 +89,10 @@ class Date:
     weathers = {Date.Weather.NONE: "Clear", Date.Weather.RAIN: "Rain",
           Date.Weather.SNOW: "Snow", Date.Weather.FOG: "Fog"}
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return None
     if weather is None:
-      print("FATAL! No weather provided!")
+      raise Exception("WHYYYYYYYY")
       return None
     return weathers[weather]
 
@@ -98,7 +101,7 @@ class Date:
 
   def advance_days(self, days):
     if self.date is None:
-      print("FATAL! No date provided!")
+      raise NoDateException("FATAL! No date provided!")
       return False
     self.date += datetime.timedelta(days=days)
     return True
