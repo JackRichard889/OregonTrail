@@ -1,6 +1,6 @@
 import datetime
 from random import randint
-
+from enum import Enum
 
 #################################
 #     Date Class v1.0           #
@@ -13,13 +13,13 @@ class NoDateException(Exception):
   pass
 
 class Date:
-  class Season:
+  class Season(Enum):
     WINTER = 0
     SUMMER = 1
     SPRING = 2
     FALL = 3
 
-  class Weather:
+  class Weather(Enum):
     NONE = 0
     SNOW = 1
     RAIN = 2

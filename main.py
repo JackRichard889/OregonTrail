@@ -1,4 +1,5 @@
 import pygame
+from date import Date
 
 WIDTH, HEIGHT = 500, 500
 
@@ -15,12 +16,14 @@ font = pygame.font.SysFont(None, 24)
 img = font.render('hello', True, BLUE)
 screen.blit(img, (20, 20))
 
+pygame.display.update()
 def main():
   running = True
   while running:
     for event in pygame.event.get():
       if event == pygame.QUIT:
         running = False
+    clock.tick(60)
 
 if __name__ == "__main__":
   main()
