@@ -24,9 +24,7 @@ class Date:
     SNOW = 1
     RAIN = 2
     FOG = 3
-
-  date = None
-
+  
   def __init__(self, month, day):
     year = 1848
     month_temp = month

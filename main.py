@@ -10,19 +10,22 @@ clock = pygame.time.Clock()
 
 all_sprites = pygame.sprite.Group()
 
-BLUE = (0, 0, 255)
+WHITE = (255, 255, 255)
+background = (1, 1, 1)
 
-font = pygame.font.SysFont(None, 24)
-img = font.render('hello', True, BLUE)
-screen.blit(img, (20, 20))
+screen.fill(background)
 
-pygame.display.update()
+font = pygame.font.SysFont(None, 75)#Font and Size
+img = font.render('The Oregon Trail', True, WHITE)#Text, N/A, Color
+screen.blit(img, (20, 20))#what to display, position.
+
 def main():
   running = True
   while running:
     for event in pygame.event.get():
       if event == pygame.QUIT:
         running = False
+    pygame.display.update()
     clock.tick(60)
 
 if __name__ == "__main__":
