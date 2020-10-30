@@ -22,8 +22,8 @@ class Inventory():
   # Returns true on item addition success, false on failure (stack too large)
   def add_items(self, item: BaseItem, count: int) -> bool:
     for stack in self.__items:
-      if stack.get_type() == item:
+      if stack.get_type() == type(item):
         return stack.add_items(count)
-    self.__items.add(ItemStack(item, item.stackable_size, count))
+    self.__items.add(ItemStack(type(item), item.stackable_size, count))
     return True
   #todo
