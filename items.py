@@ -1,4 +1,4 @@
-from itembaseclass import *
+from itembaseclass import BaseItem
 
 class TestItem(BaseItem):
   def __init__(self):

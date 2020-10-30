@@ -2,7 +2,7 @@ from typing import Union
 
 class Wagon:
   def __init__(self, inventory_size: int, party: list):
-    self.inventory: list = []
+    self.__inventory: list = []
     self.__max_inventory_size: int = inventory_size
     self.__oxen: list = []
     self.__party: list = []
@@ -12,7 +12,6 @@ class Wagon:
     pass
   def take_item() -> bool:
     pass
-  pass
 
 class ItemStack():
   def __init__(self, itemtype: type, max_size: int, count: int = 0):
@@ -30,6 +29,3 @@ class ItemStack():
       return self.__itemtype
     else:
       return None
-
-class TestItem():
-  pass

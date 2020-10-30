@@ -1,4 +1,4 @@
-from abc import *
+from abc import abstractmethod
 
 class BaseItem():
   def __init__(self):
