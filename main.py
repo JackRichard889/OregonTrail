@@ -17,6 +17,8 @@ def main():
         running = False
       elif event.type == pygame.KEYDOWN:
         currentScreen = currentScreen.process_input(event.key)
+        if currentScreen == None:
+          currentScreen = MainScreen()
     currentScreen.render(screen)
     pygame.display.update()
     clock.tick(60)

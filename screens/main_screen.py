@@ -1,4 +1,5 @@
 from screens.screen import Screen
+from screens.learn_screen import LearnScreen
 import pygame
 
 
@@ -22,7 +23,7 @@ class MainScreen(Screen):
     if charKey == "1":
       print("Travel")
     elif charKey == "2":
-      print("Learn")
+      return LearnScreen()
     elif charKey == "3":
       print("Quit")
     return self
