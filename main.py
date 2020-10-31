@@ -1,6 +1,9 @@
 import pygame
+from screens.main_screen import MainScreen
 
 WIDTH, HEIGHT = 500, 500
+
+currentScreen = MainScreen()
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -22,8 +25,10 @@ def main():
     for event in pygame.event.get():
       if event == pygame.QUIT:
         running = False
+      elif event == pygame.KEYDOWN:
+        currentScreen.processInput(event.key)
+    currentScreen.render(screen)
     pygame.display.update()
     clock.tick(60)
 
-if __name__ == "__main__":
-  main()
+main()
