@@ -7,5 +7,5 @@ class Screen():
   def render(self, screen):
     pass
   @abstractmethod
-  def processInput(self, key):
+  def process_input(self, key):
     pass
