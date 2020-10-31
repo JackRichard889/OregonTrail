@@ -13,6 +13,8 @@ class LearnScreen(Screen):
     screen.fill(background)
     font = pygame.font.Font('font/font.ttf', 29)
     title = font.render('The Oregon Trail', True, WHITE)
+    font = pygame.font.Font('font/font.ttf', 15)
+    space = font.render('Press SPACE to continue.', True, WHITE)
     if self.page == 0:
       self.render_multiline("Try taking a journey by\ncovered wagon across 2000\nmiles of plains, rivers,\nand mountains. Try! On\nthe plains, will you sloth\nyour oxen through mud and\nwater-filled ruts or will\nyou plod through dust six\ninches deep?", 35, 120, screen)
     elif self.page == 1:
@@ -22,6 +24,7 @@ class LearnScreen(Screen):
     elif self.page == 3:
       self.render_multiline("Developed by:\n\nJack Richard\nSeamus Smith\nBenedict Antwi\nDamian Jadczak\nGabriel Palomeque Jara\nPrince Nanakobi", 35, 120, screen)
     screen.blit(title, (24, 40))
+    screen.blit(space, (75, 475))
 
   def process_input(self, key):
     charKey = str(chr(key))

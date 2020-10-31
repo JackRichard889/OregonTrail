@@ -25,7 +25,7 @@ class MainScreen(Screen):
     elif charKey == "2":
       return LearnScreen()
     elif charKey == "3":
-      print("Quit")
+      return None
     return self
 
   def render_multiline(self, text, x, y, screen):
