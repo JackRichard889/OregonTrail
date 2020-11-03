@@ -5,7 +5,8 @@ from enum import Enum
 
 # Wagon class
 # Author: Seamus Smith                          ( ´･･)ﾉ┻━┻
-#                                                     ᓚᘏᗢ
+#                                               ‾‾‾‾‾ ᓚᘏᗢ
+#                                                    	‾‾‾‾
 class Wagon:
   class DamagedPart(Enum):
     AXEL = 0

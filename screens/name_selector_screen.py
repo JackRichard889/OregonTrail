@@ -1,10 +1,11 @@
 from screens.screen import Screen
+from screens.shop_screen import ShopScreen
 import pygame
 
 
 class NameSelectorScreen(Screen):
   def __init__(self):
-    self.names = ["", "", "", "", ""]
+    self.names = ["", "", "", "", "", ""]
     self.selected = 0
     print("Name selector screen created.")
 
@@ -39,9 +40,9 @@ class NameSelectorScreen(Screen):
         self.names[self.selected] += charKey
       else:
         if charKey == "y":
-          print("Go to next page.")
+          return ShopScreen()
         elif charKey == "n":
-          self.names = ["", "", "", "", ""]
+          self.names = ["", "", "", "", "", ""]
           self.selected = 0
     return self
   def render_multiline_field(self, text, entered, x, y, screen, selected):

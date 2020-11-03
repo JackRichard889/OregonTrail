@@ -22,7 +22,7 @@ def main():
         newScreen = screens[-1].process_input(event.key)
         if newScreen == None:
           screens.pop()
-        elif not newScreen.__class__ == screens[-1].__class__:
+        elif newScreen.__class__ != screens[-1].__class__:
           screens.append(newScreen)
 
 main()
