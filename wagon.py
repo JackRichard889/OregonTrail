@@ -4,8 +4,8 @@ from person import Person
 from enum import Enum
 
 # Wagon class
-# Author: Seamus Smith
-
+# Author: Seamus Smith                          ( ´･･)ﾉ┻━┻
+#                                                     ᓚᘏᗢ
 class Wagon:
   class DamagedPart(Enum):
     AXEL = 0
