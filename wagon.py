@@ -3,14 +3,17 @@ from date import Date
 from person import Person
 from enum import Enum
 
-# Wagon class
-# Author: Seamus Smith                          ( ´･･)ﾉ┻━┻
-#                                               ‾‾‾‾‾ ᓚᘏᗢ
-#                                                    	‾‾‾‾
+#                                    |squinch time|
+# Wagon class                            /
+# Author: Seamus Smith               ( ´･･)ﾉ┻━┻
+#                                    ‾‾‾‾‾ ᓚᘏᗢ
+#                                    ‾‾‾‾‾‾‾‾‾‾‾
+
 class Wagon:
   class DamagedPart(Enum):
-    AXEL = 0
-    WHEEL = 1
+    NONE = 0
+    AXEL = 1
+    WHEEL = 2
     TONGUE = 3
   def __init__(self, party: list, main_character: Person):
     self.inventory: dict = {
@@ -22,9 +25,8 @@ class Wagon:
       "wheel": 0,
       "tongues": 0
     }
-    self.main_character = main_character
-    self.damaged: bool = False
-    self.damaged_part: Any
+    self.main_character: Person = main_character
+    self.damage: Wagon.DamagedPart = Wagon.DamagedPart.NONE
     self.oxen: list = []
     self.party: list = []
   #update all party members

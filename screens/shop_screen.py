@@ -11,9 +11,8 @@ class ShopScreen(Screen):
     background = (0, 0, 0)
     screen.fill(background)
     font = pygame.font.Font('font/font.ttf', 29)
-    shopImage = pygame.image.load("assets/shop.png")
+    shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
-
   def process_input(self, key):
     charKey = str(chr(key))
     return self
