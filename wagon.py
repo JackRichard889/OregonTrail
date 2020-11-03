@@ -3,7 +3,7 @@ from itembaseclass import BaseItem
 from itemstack import ItemStack
 
 class Wagon:
-  def __init__(self, inventory_size: int, party: list):
+  def __init__(self, party: list):
     self.inventory: dict = {
       "food": 0,
       "cash": 0,
