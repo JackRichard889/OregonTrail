@@ -1,7 +1,8 @@
 1. Get data from screens to main class?
 2. How will location affect the wagon, health, and resources?
-3. Capital letters, avoid crashes
+3. Capital letters, avoid crashes ✅
 4. Add picture to name selection screen
 5. Do we need to select the start month like the original does?
-6. My code is a mess, and I definitely have to fix it.
+6. My code is a mess, and I definitely have to fix it. 
 7. Much more to do...
+8. Implement a handle for the map

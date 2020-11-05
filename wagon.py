@@ -2,6 +2,7 @@ from typing import Union, Any
 from date import Date
 from person import Person
 from enum import Enum
+from environment import Environment
 
 #                                    |squinch time|
 # Wagon class                            /
@@ -37,7 +38,7 @@ class Wagon:
   def update_oxen(self) -> None:
     for ox, i in enumerate(self.oxen):
       ox.update() if ox.alive else self.oxen.remove(i)
-  def update_wagon(self) -> None:
+  def update_wagon(self, env: Environment) -> None:
     raise NotImplementedError("the wagon crashed, burned, and blew up")
     # should probably be a chance to damage the wagon, requiring spare parts
 
