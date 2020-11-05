@@ -1,2 +1,2 @@
-## The Oregon Trail Project
-# you have died of dysentery
+# The Oregon Trail Project
+## You have died of dysentery.

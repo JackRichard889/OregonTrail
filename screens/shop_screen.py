@@ -14,7 +14,8 @@ class ShopScreen(Screen):
     shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
   def process_input(self, key):
-    charKey = str(chr(key))
+    if self.is_letter(key):
+      charKey = str(chr(key))
     return self
 
   def render_multiline(self, text, x, y, screen):
@@ -22,3 +23,9 @@ class ShopScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
+  def is_letter(self, i):
+    try: 
+        chr(i)
+        return True
+    except ValueError:
+        return False

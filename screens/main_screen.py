@@ -20,13 +20,14 @@ class MainScreen(Screen):
     screen.blit(title, (24, 40))
 
   def process_input(self, key):
-    charKey = str(chr(key))
-    if charKey == "1":
-      return SelectorScreen()
-    elif charKey == "2":
-      return LearnScreen()
-    elif charKey == "3":
-      return None
+    if self.is_letter(key):
+      charKey = str(chr(key))
+      if charKey == "1":
+        return SelectorScreen()
+      elif charKey == "2":
+        return LearnScreen()
+      elif charKey == "3":
+        return None
     return self
 
   def render_multiline(self, text, x, y, screen):
@@ -34,3 +35,10 @@ class MainScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
+
+  def is_letter(self, i):
+    try: 
+        chr(i)
+        return True
+    except ValueError:
+        return False

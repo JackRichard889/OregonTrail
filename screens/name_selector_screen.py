@@ -33,9 +33,11 @@ class NameSelectorScreen(Screen):
     elif key == pygame.K_BACKSPACE:
       if len(self.names[self.selected]) > 0:
         self.names[self.selected] = self.names[self.selected][:-1]
-    elif len(self.names[self.selected]) < 12:
-      # TODO: capital letter crash
+    elif len(self.names[self.selected]) < 12 and self.is_letter(key):
       charKey = str(chr(key))
+      mods = pygame.key.get_mods()
+      if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[pygame.K_RSHIFT] or mods & pygame.KMOD_CAPS:
+        charKey = charKey.upper()
       if not self.selected == 5:
         self.names[self.selected] += charKey
       else:
@@ -54,3 +56,9 @@ class NameSelectorScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 17 * i))
+  def is_letter(self, i):
+    try: 
+        chr(i)
+        return True
+    except ValueError:
+        return False

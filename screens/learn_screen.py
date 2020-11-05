@@ -27,12 +27,13 @@ class LearnScreen(Screen):
     screen.blit(space, (75, 475))
 
   def process_input(self, key):
-    charKey = str(chr(key))
-    if charKey == " ":
-      if not self.page == 3:
-        self.page = self.page + 1
-      else:
-        return None
+    if self.is_letter(key):
+      charKey = str(chr(key))
+      if charKey == " ":
+        if not self.page == 3:
+          self.page = self.page + 1
+        else:
+          return None
     return self
 
   def render_multiline(self, text, x, y, screen):
@@ -40,3 +41,9 @@ class LearnScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
+  def is_letter(self, i):
+    try: 
+        chr(i)
+        return True
+    except ValueError:
+        return False
