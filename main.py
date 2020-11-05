@@ -9,7 +9,7 @@ pygame.display.set_caption("Oregon Trail 2020 Remastered Ultimate Edition")
 clock = pygame.time.Clock()
 
 def main():
-  screens = [MainScreen()]
+  screens = [MainScreen({})]
   while len(screens) > 0:
     screens[-1].render(screen)
     pygame.display.update()

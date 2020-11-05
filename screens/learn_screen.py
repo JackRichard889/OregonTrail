@@ -1,10 +1,12 @@
 from screens.screen import Screen
 import pygame
+import util
 
 
 class LearnScreen(Screen):
-  def __init__(self):
+  def __init__(self, data):
     self.page = 0
+    self.data = data
     print("Learn screen created.")
 
   def render(self, screen):
@@ -27,7 +29,7 @@ class LearnScreen(Screen):
     screen.blit(space, (75, 475))
 
   def process_input(self, key):
-    if self.is_letter(key):
+    if util.is_letter(key):
       charKey = str(chr(key))
       if charKey == " ":
         if not self.page == 3:
@@ -41,9 +43,3 @@ class LearnScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
-  def is_letter(self, i):
-    try: 
-        chr(i)
-        return True
-    except ValueError:
-        return False

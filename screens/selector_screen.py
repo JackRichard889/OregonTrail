@@ -1,10 +1,12 @@
 from screens.screen import Screen
 from screens.name_selector_screen import NameSelectorScreen
 import pygame
+import util
 
 
 class SelectorScreen(Screen):
-  def __init__(self):
+  def __init__(self, data):
+    self.data = data
     print("Selector screen created.")
 
   def render(self, screen):
@@ -19,11 +21,12 @@ class SelectorScreen(Screen):
     screen.blit(title, (24, 40))
 
   def process_input(self, key):
-    if self.is_letter(key):
+    if util.is_letter(key):
       charKey = str(chr(key))
       try:
         if int(charKey) < 4 and int(charKey) > 0:
-          return NameSelectorScreen()
+          self.data["occupation"] = int(charKey)
+          return NameSelectorScreen(self.data)
         else:
           return self
       except:
@@ -35,9 +38,3 @@ class SelectorScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
-  def is_letter(self, i):
-    try: 
-        chr(i)
-        return True
-    except ValueError:
-        return False

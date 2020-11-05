@@ -1,9 +1,11 @@
 from screens.screen import Screen
+import util
 import pygame
 
-
 class ShopScreen(Screen):
-  def __init__(self):
+  def __init__(self, data):
+    self.data = data
+    print(data)
     print("Shop screen created.")
 
   def render(self, screen):
@@ -14,7 +16,7 @@ class ShopScreen(Screen):
     shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
   def process_input(self, key):
-    if self.is_letter(key):
+    if util.is_letter(key):
       charKey = str(chr(key))
     return self
 
@@ -23,9 +25,3 @@ class ShopScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
-  def is_letter(self, i):
-    try: 
-        chr(i)
-        return True
-    except ValueError:
-        return False

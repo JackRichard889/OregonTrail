@@ -1,7 +1,8 @@
 from abc import abstractmethod
 
 class Screen():
-  def __init__(self):
+  def __init__(self, data):
+    self.data = data
     pass
   @abstractmethod
   def render(self, screen):
