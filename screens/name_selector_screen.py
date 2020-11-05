@@ -1,6 +1,7 @@
 from screens.screen import Screen
 from screens.shop_screen import ShopScreen
 import pygame
+import util
 
 
 class NameSelectorScreen(Screen):
