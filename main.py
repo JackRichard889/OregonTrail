@@ -9,8 +9,10 @@ pygame.display.set_caption("Oregon Trail 2020 Remastered Ultimate Edition")
 clock = pygame.time.Clock()
 
 def main():
-  screens = [MainScreen({})]
+  data = {}
+  screens = [MainScreen(data)]
   while len(screens) > 0:
+    screens[-1].receive_data(data)
     screens[-1].render(screen)
     pygame.display.update()
     clock.tick(60)
@@ -19,10 +21,17 @@ def main():
         screens.clear()
         break
       elif event.type == pygame.KEYDOWN:
-        newScreen = screens[-1].process_input(event.key)
+        screens[-1].process_input(event.key)
+        newScreen = screens[-1].listen_for_transition()
         if newScreen == None:
           screens.pop()
+          if len(screens) < 1:
+            return
         elif newScreen.__class__ != screens[-1].__class__:
           screens.append(newScreen)
+    for scr in screens:
+      if scr.idle:
+        screens.remove(scr)
+    data = screens[-1].sync_data()
 
 main()

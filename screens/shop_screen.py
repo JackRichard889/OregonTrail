@@ -5,7 +5,8 @@ import pygame
 class ShopScreen(Screen):
   def __init__(self, data):
     self.data = data
-    print(data)
+    self.next = self
+    self.idle = False
     print("Shop screen created.")
 
   def render(self, screen):
@@ -15,10 +16,10 @@ class ShopScreen(Screen):
     font = pygame.font.Font('font/font.ttf', 29)
     shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
+
   def process_input(self, key):
     if util.is_letter(key):
       charKey = str(chr(key))
-    return self
 
   def render_multiline(self, text, x, y, screen):
     font = pygame.font.Font('font/font.ttf', 18)

@@ -7,6 +7,8 @@ import util
 class SelectorScreen(Screen):
   def __init__(self, data):
     self.data = data
+    self.next = self
+    self.idle = False
     print("Selector screen created.")
 
   def render(self, screen):
@@ -26,12 +28,10 @@ class SelectorScreen(Screen):
       try:
         if int(charKey) < 4 and int(charKey) > 0:
           self.data["occupation"] = int(charKey)
-          return NameSelectorScreen(self.data)
-        else:
-          return self
+          self.next = NameSelectorScreen(self.data)
+          self.idle = True
       except:
-        return self
-    return self
+        print("Not valid.") # should probably handle this differently
 
   def render_multiline(self, text, x, y, screen):
     font = pygame.font.Font('font/font.ttf', 18)

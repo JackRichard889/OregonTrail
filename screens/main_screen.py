@@ -8,6 +8,8 @@ import util
 class MainScreen(Screen):
   def __init__(self, data):
     self.data = data
+    self.next = self
+    self.idle = False
     print("Main screen created.")
 
   def render(self, screen):
@@ -25,12 +27,11 @@ class MainScreen(Screen):
     if util.is_letter(key):
       charKey = str(chr(key))
       if charKey == "1":
-        return SelectorScreen(self.data)
+        self.next = SelectorScreen(self.data)
       elif charKey == "2":
-        return LearnScreen(self.data)
+        self.next = LearnScreen(self.data)
       elif charKey == "3":
-        return None
-    return self
+        self.next = None
 
   def render_multiline(self, text, x, y, screen):
     font = pygame.font.Font('font/font.ttf', 18)

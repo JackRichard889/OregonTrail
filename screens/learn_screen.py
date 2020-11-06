@@ -7,6 +7,8 @@ class LearnScreen(Screen):
   def __init__(self, data):
     self.page = 0
     self.data = data
+    self.next = self
+    self.idle = False
     print("Learn screen created.")
 
   def render(self, screen):
@@ -35,8 +37,7 @@ class LearnScreen(Screen):
         if not self.page == 3:
           self.page = self.page + 1
         else:
-          return None
-    return self
+          self.next = None
 
   def render_multiline(self, text, x, y, screen):
     font = pygame.font.Font('font/font.ttf', 18)
