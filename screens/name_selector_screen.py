@@ -17,6 +17,7 @@ class NameSelectorScreen(Screen):
     WHITE = (255, 255, 255)
     background = (0, 0, 0)
     screen.fill(background)
+    # ? These pygame.image.load calls are costly. Maybe put them into constants?
     img1 = pygame.image.load("screens/assets/mama.png")
     img2 = util.imgscale(pygame.image.load("screens/assets/gunman.png"), 1.5)
     img3 = util.imgscale(pygame.image.load("screens/assets/oxen.png"), 1.5)

@@ -11,6 +11,7 @@ clock = pygame.time.Clock()
 def main():
   data = {}
   screens = [MainScreen(data)]
+
   while len(screens) > 0:
     screens[-1].receive_data(data)
     screens[-1].render(screen)
