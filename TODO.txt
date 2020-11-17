@@ -1,10 +1,17 @@
-1. Get data from screens to main class? ✅
-2. How will location affect the wagon, health, and resources?
+---
+IN PROGRESS (Order of Priority)
+---
+1. Construct the Wagon class when creating the party
+2. Create a class for handling shops
+3. Do we need to select the start month like the original does?
+4. How will location affect the wagon, health, and resources?
+5. Implement a handle for the map
+
+
+---
+DONE TASKS
+---
+9. Implement util.is_letter for screens instead of self.is_letter ✅
 3. Capital letters, avoid crashes ✅
 4. Add picture to name selection screen ✅
-5. Do we need to select the start month like the original does?
-6. My code is a mess, and I definitely have to fix it. 
-7. Much more to do...
-8. Implement a handle for the map
-9. Implement util.is_letter for screens instead of self.is_letter ✅
-10. Create a class for handling shops
+1. Get data from screens to main class? ✅

@@ -2,7 +2,6 @@ from screens.screen import Screen
 import pygame
 import util
 
-
 class LearnScreen(Screen):
   def __init__(self, data):
     self.page = 0
