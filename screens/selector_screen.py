@@ -23,18 +23,22 @@ class SelectorScreen(Screen):
     screen.blit(title, (24, 40))
 
   def process_input(self, key):
-    if util.is_letter(key):
+    if util.is_letter(key) and self.isNumber(str(chr(key))):
       charKey = str(chr(key))
-      try:
-        if int(charKey) < 4 and int(charKey) > 0:
-          self.data["occupation"] = int(charKey)
-          self.next = NameSelectorScreen(self.data)
-          self.idle = True
-      except:
-        print("Not valid.") # should probably handle this differently
+      if int(charKey) < 4 and int(charKey) > 0:
+        self.data["occupation"] = int(charKey) - 1
+        self.next = NameSelectorScreen(self.data)
+        self.idle = True
 
   def render_multiline(self, text, x, y, screen):
     font = pygame.font.Font('font/font.ttf', 18)
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
+
+  def isNumber(self, number):
+    try:
+      int(number)
+      return True
+    except:
+      return False

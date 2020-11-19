@@ -1,6 +1,7 @@
 import pygame
 from math import *
 from typing import Union
+from person import Person
 
 # Image Scaling function
 # By Seamus Smith
@@ -25,3 +26,12 @@ def is_letter(i: chr) -> bool:
     return True
   except ValueError:
     return False
+
+# String Array to Person Array
+# By Jack Richard
+# Copyright 2020
+def array_to_person(arrayNames, indexOfMain=0, arrayAlive=([True] * 5)):
+  output = []
+  for index in range(len(arrayNames)):
+    output.append(Person(arrayNames[index], index == indexOfMain, arrayAlive[index]))
+  return output

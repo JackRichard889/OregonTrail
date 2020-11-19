@@ -2,6 +2,7 @@ from screens.screen import Screen
 from screens.shop_screen import ShopScreen
 import pygame
 import util
+from wagon import Wagon
 
 
 class NameSelectorScreen(Screen):
@@ -56,7 +57,8 @@ class NameSelectorScreen(Screen):
       else:
         if charKey == "y":
           self.names.pop()
-          self.data["names"] = self.names
+          people = util.array_to_person(self.names)
+          self.data["wagon"] = Wagon(people, people[0])
           self.next = ShopScreen(self.data)
           self.idle = True
         elif charKey == "n":
