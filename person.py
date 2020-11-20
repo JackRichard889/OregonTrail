@@ -40,11 +40,12 @@ class DiseaseList(Enum):
 
 
 class Person:
-    def __init__(self, name, is_main_person, alive):
+    def __init__(self, name, is_main_person, alive, occupation=-1):
         self.name = name
         self.is_main_person = is_main_person
         self.diseases = {}
         self.alive = alive
+        self.occupation = occupation
 
     def update(self):
         for disease in self.diseases:

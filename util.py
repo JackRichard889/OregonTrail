@@ -35,3 +35,14 @@ def array_to_person(arrayNames, indexOfMain=0, arrayAlive=([True] * 5)):
   for index in range(len(arrayNames)):
     output.append(Person(arrayNames[index], index == indexOfMain, arrayAlive[index]))
   return output
+
+# Money For Profession Function
+# By Jack Richard
+# Copyright 2020
+def money_for_profession(occupation):
+  if occupation == 0:
+    return 1600
+  elif occupation == 1:
+    return 800
+  elif occupation == 2:
+    return 400

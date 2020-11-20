@@ -58,6 +58,8 @@ class NameSelectorScreen(Screen):
         if charKey == "y":
           self.names.pop()
           people = util.array_to_person(self.names)
+          people[0].occupation = self.data["occupation"]
+          del self.data["occupation"]
           self.data["wagon"] = Wagon(people, people[0])
           self.next = ShopScreen(self.data)
           self.idle = True

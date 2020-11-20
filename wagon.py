@@ -3,6 +3,7 @@ from date import Date
 from person import Person
 from enum import Enum
 from environment import Environment
+import util
 
 #                                    |squinch time|
 # Wagon class                            /
@@ -19,7 +20,7 @@ class Wagon:
   def __init__(self, party: list, main_character: Person):
     self.inventory: dict = {
       "food": 0,
-      "cash": 0,
+      "cash": util.money_for_profession(main_character.occupation),
       "clothing": 0,
       "ammunition": 0,
       "axel": 0,
