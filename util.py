@@ -2,6 +2,7 @@ import pygame
 from math import *
 from typing import Union
 from person import Person
+import random
 
 # Image Scaling function
 # By Seamus Smith
@@ -41,8 +42,15 @@ def array_to_person(arrayNames, indexOfMain=0, arrayAlive=([True] * 5)):
 # Copyright 2020
 def money_for_profession(occupation):
   if occupation == 0:
-    return 1600
+    return 1600.00
   elif occupation == 1:
-    return 800
+    return 800.00
   elif occupation == 2:
-    return 400
+    return 400.00
+
+# Random Name Generator
+# By Jack Richard
+# Copyright 2020
+def random_name():
+  names = ["Anna", "John", "Henry", "Jed", "Beth", "Zeke"]
+  return random.choice(names)

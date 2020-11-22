@@ -40,9 +40,13 @@ class NameSelectorScreen(Screen):
 
   def process_input(self, key):
     if key == pygame.K_RETURN:
-      if self.selected < 4:
+      if self.selected < 4 and self.names[self.selected] != "":
+        if self.names[self.selected] == " ":
+          self.names[self.selected] = util.random_name()
         self.selected += 1
       else:
+        if self.names[self.selected] == " ":
+          self.names[self.selected] = util.random_name()
         self.selected = 5
     elif key == pygame.K_BACKSPACE:
       if len(self.names[self.selected]) > 0:

@@ -1,3 +1,37 @@
+from enum import Enum
+import pygame
+
+class Landmarks:
+  class Landmarks(Enum):
+    INDEPENDENCE = 0
+    FORT_KEARNEY = 1
+    CHIMNEY_ROCK = 2
+    FORT_LARAMIE = 3
+    INDEPENDENCE_ROCK = 4
+    SOUTH_PASS = 5
+    SODA_SPRINGS = 6
+    FORT_BRIDGER = 7
+    FORT_HALL = 8
+    FORT_BOISE = 9
+    BLUE_MOUNTAINS = 10
+    FORT_WALLA_WALLA = 11
+    THE_DALLES = 12
+  # TODO: no photo for INDEPENDENCE?
+  assets = {
+    Landmarks.FORT_KEARNEY: pygame.image.load("screens/assets/landmarks/fort_kearney.png"),
+    Landmarks.CHIMNEY_ROCK: pygame.image.load("screens/assets/landmarks/chimney_rock.png"),
+    Landmarks.FORT_LARAMIE: pygame.image.load("screens/assets/landmarks/fort_laramie.png"),
+    Landmarks.INDEPENDENCE_ROCK: pygame.image.load("screens/assets/landmarks/independence_rock.png"),
+    Landmarks.SOUTH_PASS: pygame.image.load("screens/assets/landmarks/south_pass.png"),
+    Landmarks.SODA_SPRINGS: pygame.image.load("screens/assets/landmarks/soda_springs.png"),
+    Landmarks.FORT_BRIDGER: pygame.image.load("screens/assets/landmarks/fort_bridger.png"),
+    Landmarks.FORT_HALL: pygame.image.load("screens/assets/landmarks/fort_hall.png"),
+    Landmarks.FORT_BOISE: pygame.image.load("screens/assets/landmarks/fort_boise.png"),
+    Landmarks.BLUE_MOUNTAINS: pygame.image.load("screens/assets/landmarks/blue_mountains.png"),
+    Landmarks.FORT_WALLA_WALLA: pygame.image.load("screens/assets/landmarks/fort_walla_walla.png"),
+    Landmarks.THE_DALLES: pygame.image.load("screens/assets/landmarks/the_dalles.png")
+  }
+
 class Environment:
     def __init__(self, name: str, texture, length: int):
         self.name = name
