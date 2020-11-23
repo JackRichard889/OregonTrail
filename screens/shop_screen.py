@@ -1,6 +1,9 @@
 from screens.screen import Screen
+from screens.alert_screen import AlertScreen
 import util
 import pygame
+
+# TODO: properly implement spare parts
 
 class ShopScreen(Screen):
   def __init__(self, data):
@@ -20,7 +23,6 @@ class ShopScreen(Screen):
     font = pygame.font.Font('font/font.ttf', 15)
     shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
-    # IMPORTANT: you can also buy spare wagon parts
     if self.showScreen == 0:
       space = font.render('Press SPACE to continue.', True, WHITE)
       screen.blit(space, (75, 475))
@@ -30,6 +32,8 @@ class ShopScreen(Screen):
       screen.blit(space, (75, 475))
       self.render_multiline("You can buy whatever you\nneed at Matt's General\nStore.", 20, 10, screen)
     elif self.showScreen == 2:
+      space = font.render('Press SPACE to leave.', True, WHITE)
+      screen.blit(space, (95, 475))
       self.render_multiline('Shop: \n 1. Oxen \n 2. Food \n 3. Clothes\n 4. Ammo\n 5. Spare parts', 225, 20, screen)
     elif self.showScreen == 3:
       self.render_multiline("Oxen:\n They're there to ride \n your wagon across \n the trail!", 50, 20, screen)
@@ -48,11 +52,14 @@ class ShopScreen(Screen):
 
   def process_input(self, key):
     if key == pygame.K_RETURN:
-      if self.showScreen > 2 and self.showScreen < 7:
+      if self.showScreen > 2 and self.showScreen < 7 and self.isNumber(self.input[0]):
         items = ["oxen", "food", "clothing", "ammunition", "spare_parts"]
-        self.bill[items[self.showScreen - 3]] = self.input[0]
-        self.input[0] = ""
-        self.showScreen = 2
+        if int(self.input[0]) > self.get_max(self.showScreen - 3):
+          self.next = AlertScreen(self.data, "You can only hold "+str(self.get_max(self.showScreen - 3))+"\nof this item.")
+        else:
+          self.bill[items[self.showScreen - 3]] = int(self.input[0])
+          self.input[0] = ""
+          self.showScreen = 2
     elif util.is_letter(key):
       charKey = str(chr(key))
       if self.showScreen < 2 and charKey == " ":
@@ -70,6 +77,7 @@ class ShopScreen(Screen):
         self.showScreen = 6
       elif str(charKey) == '5':
         self.showScreen = 7
+    print(self.bill)
           
 
   def render_multiline(self, text, x, y, screen):
@@ -94,3 +102,7 @@ class ShopScreen(Screen):
     lines = text.splitlines()
     for i, l in enumerate(lines):
       screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 17 * i))
+
+  def get_max(self, index):
+    maxes = [9, 2000, 99, 99]
+    return maxes[index]
