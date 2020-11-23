@@ -52,5 +52,11 @@ def money_for_profession(occupation):
 # By Jack Richard
 # Copyright 2020
 def random_name():
-  names = ["Anna", "John", "Henry", "Jed", "Beth", "Zeke"]
+  names = ["Anna", "John", "Henry", "Jed", "Beth", "Zeke", "Sara"]
   return random.choice(names)
+
+# Shop Price Calculation
+# By Jack Richard
+# Copyright 2020
+def calculate_bill(items, prices={"oxen": 40.00, "food": 0.20, "clothing": 10.00, "ammunition": 2.00, "spare_parts":{"wheel": 10.00, "axel": 10.00, "tongue": 10.00}}):
+  return (items["oxen"] * prices["oxen"]) + (items["food"] * prices["food"]) + (items["clothing"] * prices["clothing"]) + (items["ammunition"] * prices["ammunition"]) + (items["spare_parts"]["wheel"] * prices["spare_parts"]["wheel"]) + (items["spare_parts"]["axel"] * prices["spare_parts"]["axel"]) + (items["spare_parts"]["tongue"] * prices["spare_parts"]["tongue"])

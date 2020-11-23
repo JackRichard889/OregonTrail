@@ -1,5 +1,6 @@
 import pygame
 from screens.main_screen import MainScreen
+from date import Date
 
 WIDTH, HEIGHT = 500, 500
 
@@ -9,7 +10,7 @@ pygame.display.set_caption("Oregon Trail 2020 Remastered Ultimate Edition")
 clock = pygame.time.Clock()
 
 def main():
-  data = {}
+  data = {"date": Date(4, 0)}
   screens = [MainScreen(data)]
 
   while len(screens) > 0:

@@ -48,7 +48,7 @@ class ShopScreen(Screen):
       self.render_multiline_field("How many " + options[self.showScreen - 7] + " \nwould you like to\npurchase? ", self.input[0], 215, 150, screen, True)
     
     if self.showScreen > 2 and self.showScreen < 7:
-      options = ["many\nyokes (pairs)", "many pounds", "many\nsets", "many boxes\nof 20"]
+      options = ["many yokes\n(pairs)", "many pounds", "many\nsets", "many boxes\nof 20"]
       self.render_multiline_field("How " + options[self.showScreen - 3] + " would\nyou like to\npurchase? ", self.input[0], 225, 150, screen, True)
 
   def process_input(self, key):
@@ -81,6 +81,7 @@ class ShopScreen(Screen):
         elif self.showScreen == 2:
           if self.bill["oxen"] > 0:
             print("Leaving store with: "+str(self.bill))
+            print("Price: $"+str(util.calculate_bill(self.bill))+"0")
           else:
             self.next = AlertScreen(self.data, "You need some oxen to\npull your wagon!")
       elif self.showScreen > 2 and self.showScreen < 10 and self.isNumber(charKey):
