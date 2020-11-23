@@ -23,9 +23,3 @@ class AlertScreen(Screen):
       if str(chr(key)) == " ":
         self.next = None
         self.idle = True
-
-  def render_multiline(self, text, x, y, screen):
-    font = pygame.font.Font('font/font.ttf', 18)
-    lines = text.splitlines()
-    for i, l in enumerate(lines):
-      screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))

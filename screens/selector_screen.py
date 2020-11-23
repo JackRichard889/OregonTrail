@@ -29,16 +29,3 @@ class SelectorScreen(Screen):
         self.data["occupation"] = int(charKey) - 1
         self.next = NameSelectorScreen(self.data)
         self.idle = True
-
-  def render_multiline(self, text, x, y, screen):
-    font = pygame.font.Font('font/font.ttf', 18)
-    lines = text.splitlines()
-    for i, l in enumerate(lines):
-      screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
-
-  def isNumber(self, number):
-    try:
-      int(number)
-      return True
-    except:
-      return False

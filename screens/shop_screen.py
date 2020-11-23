@@ -23,6 +23,7 @@ class ShopScreen(Screen):
     font = pygame.font.Font('font/font.ttf', 15)
     shopImage = pygame.image.load("screens/assets/shop.png")
     screen.blit(shopImage, (0, 0))
+    
     if self.showScreen == 0:
       space = font.render('Press SPACE to continue.', True, WHITE)
       screen.blit(space, (75, 475))
@@ -60,48 +61,20 @@ class ShopScreen(Screen):
           self.bill[items[self.showScreen - 3]] = int(self.input[0])
           self.input[0] = ""
           self.showScreen = 2
+    elif key == pygame.K_BACKSPACE and self.showScreen < 7 and self.showScreen > 2 and len(self.input[0]) > 0:
+      self.input[0] = self.input[0][:-1]
     elif util.is_letter(key):
       charKey = str(chr(key))
-      if self.showScreen < 2 and charKey == " ":
-        self.showScreen += 1
-      if self.showScreen > 2 and self.showScreen < 7:
+      if charKey == " ":
+        if self.showScreen < 2:
+          self.showScreen += 1
+        elif self.showScreen == 2:
+          # TODO: check minimum purchases (e.g you need oxen to start the game)
+          print("Leaving store with "+str(self.bill))
+      elif self.showScreen > 2 and self.showScreen < 7 and self.isNumber(charKey):
         self.input[0] += charKey
-      elif str(charKey) == '1':
-        self.showScreen = 3
-        print(self.showScreen)
-      elif str(charKey) == '2':
-        self.showScreen = 4
-      elif str(charKey) == '3':
-        self.showScreen = 5
-      elif str(charKey) == '4':
-        self.showScreen = 6
-      elif str(charKey) == '5':
-        self.showScreen = 7
-    print(self.bill)
-          
-
-  def render_multiline(self, text, x, y, screen):
-    font = pygame.font.Font('font/font.ttf', 18)
-    lines = text.splitlines()
-    for i, l in enumerate(lines):
-      screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 19 * i))
-
-  def isNumber(self, number):
-    try:
-      int(number)
-      return True
-    except:
-      return False
-
-  def render_multiline_field(self, text, entered, x, y, screen, selected):
-    font = pygame.font.Font('font/font.ttf', 17)
-    if entered == "" and selected:
-      text += "_"
-    else:
-      text += entered
-    lines = text.splitlines()
-    for i, l in enumerate(lines):
-      screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 17 * i))
+      elif self.showScreen == 2 and self.isNumber(charKey):
+        self.showScreen = int(charKey) + 2
 
   def get_max(self, index):
     maxes = [9, 2000, 99, 99]

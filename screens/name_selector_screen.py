@@ -70,13 +70,3 @@ class NameSelectorScreen(Screen):
         elif charKey == "n":
           self.names = ["", "", "", "", "", ""]
           self.selected = 0
-
-  def render_multiline_field(self, text, entered, x, y, screen, selected):
-    font = pygame.font.Font('font/font.ttf', 17)
-    if entered == "" and selected:
-      text += "_"
-    else:
-      text += entered
-    lines = text.splitlines()
-    for i, l in enumerate(lines):
-      screen.blit(font.render(l, 0, (255, 255, 255)), (x, y + 17 * i))
