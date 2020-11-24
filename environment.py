@@ -16,8 +16,23 @@ class Landmarks:
     BLUE_MOUNTAINS = 10
     FORT_WALLA_WALLA = 11
     THE_DALLES = 12
-  # TODO: no photo for INDEPENDENCE?
+  names = {
+    Landmarks.INDEPENDENCE: "Independence, Missouri",
+    Landmarks.FORT_KEARNEY: "Fort Kearney",
+    Landmarks.CHIMNEY_ROCK: "Chimney Rock",
+    Landmarks.FORT_LARAMIE: "Fort Laramie",
+    Landmarks.INDEPENDENCE_ROCK: "Independence Rock",
+    Landmarks.SOUTH_PASS: "South Pass",
+    Landmarks.SODA_SPRINGS: "Soda Springs",
+    Landmarks.FORT_BRIDGER: "Fort Bridger",
+    Landmarks.FORT_HALL: "Fort Hall",
+    Landmarks.FORT_BOISE: "Fort Boise",
+    Landmarks.BLUE_MOUNTAINS: "Blue Mountains",
+    Landmarks.FORT_WALLA_WALLA: "Fort Walla Walla",
+    Landmarks.THE_DALLES: "The Dalles"
+  }
   assets = {
+    Landmarks.INDEPENDENCE: pygame.image.load("screens/assets/landmarks/independence.jpg"),
     Landmarks.FORT_KEARNEY: pygame.image.load("screens/assets/landmarks/fort_kearney.png"),
     Landmarks.CHIMNEY_ROCK: pygame.image.load("screens/assets/landmarks/chimney_rock.png"),
     Landmarks.FORT_LARAMIE: pygame.image.load("screens/assets/landmarks/fort_laramie.png"),
