@@ -1,6 +1,7 @@
 from screens.screen import Screen
 from screens.alert_screen import AlertScreen
 from screens.splash_screen import SplashScreen
+from screens.trail.options_screen import OptionsScreen
 from environment import Landmarks
 import util
 import pygame
@@ -84,7 +85,7 @@ class ShopScreen(Screen):
           if self.bill["oxen"] > 0:
             print("Leaving store with: "+str(self.bill))
             print("Price: $"+str(util.calculate_bill(self.bill))+"0")
-            self.next = SplashScreen(self.data, Landmarks.Landmarks.INDEPENDENCE)
+            self.next = SplashScreen(self.data, Landmarks.Landmarks.INDEPENDENCE, OptionsScreen(self.data))
           else:
             self.next = AlertScreen(self.data, "You need some oxen to\npull your wagon!")
       elif self.showScreen > 2 and self.showScreen < 10 and self.isNumber(charKey):
