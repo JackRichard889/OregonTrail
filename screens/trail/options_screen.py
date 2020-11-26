@@ -1,5 +1,6 @@
 from screens.screen import Screen
-import pygame
+from screens.trail.trail_screen import TrailScreen
+import pygame, util
 
 class OptionsScreen(Screen):
   def __init__(self, data):
@@ -20,7 +21,8 @@ class OptionsScreen(Screen):
     # Weather
     weather_text = font.render("Weather: "+self.data["date"].get_formatted_weather(self.data["date"].get_weather()), True, background)
     # Health
-    health_text = font.render("Health: TODO", True, background)
+    health_formatted = ["good", "fair", "poor"]
+    health_text = font.render("Health: "+health_formatted[util.get_overall_health(self.data["wagon"].party)], True, background)
     # Pace
     pace_formatted = ["steady", "strenuous", "grueling"]
     pace_text = font.render("Pace: "+pace_formatted[self.data["pace"]], True, background)
@@ -41,5 +43,11 @@ class OptionsScreen(Screen):
     screen.blit(rations_text, rations_text.get_rect(center=(500//2, 124)))
 
   def process_input(self, key):
-    # TODO: process input options
-    print(key)
+    if util.is_letter(key):
+      charKey = str(chr(key))
+      if self.isNumber(charKey):
+        option = int(charKey)
+        if option == 1:
+          self.next = TrailScreen(self.data)
+          self.idle = True
+        # TODO: process other input options

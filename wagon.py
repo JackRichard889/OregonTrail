@@ -25,12 +25,12 @@ class Wagon:
       "ammunition": 0,
       "axel": 0,
       "wheel": 0,
-      "tongues": 0
+      "tongue": 0
     }
     self.main_character: Person = main_character
     self.damage: Wagon.DamagedPart = Wagon.DamagedPart.NONE
     self.oxen: list = []
-    self.party: list = []
+    self.party: list = party
   #update all party members
   def update_party(self) -> None:
     for i in self.party:

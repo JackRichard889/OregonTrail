@@ -85,6 +85,7 @@ class ShopScreen(Screen):
           if self.bill["oxen"] > 0:
             print("Leaving store with: "+str(self.bill))
             print("Price: $"+str(util.calculate_bill(self.bill))+"0")
+            self.process_bill(self.bill)
             self.next = SplashScreen(self.data, Landmarks.Landmarks.INDEPENDENCE, OptionsScreen(self.data))
           else:
             self.next = AlertScreen(self.data, "You need some oxen to\npull your wagon!")
@@ -92,6 +93,16 @@ class ShopScreen(Screen):
         self.input[0] += charKey
       elif self.showScreen == 2 and self.isNumber(charKey):
         self.showScreen = int(charKey) + 2
+
+  def process_bill(self, bill):
+    if self.data["wagon"].inventory["cash"] < util.calculate_bill(bill):
+      return False
+    self.data["wagon"].inventory["food"] += bill["food"]
+    self.data["wagon"].inventory["clothing"] += bill["clothing"]
+    self.data["wagon"].inventory["ammunition"] += bill["ammunition"]
+    self.data["wagon"].inventory["axel"] += bill["spare_parts"]["axel"]
+    self.data["wagon"].inventory["wheel"] += bill["spare_parts"]["wheel"]
+    self.data["wagon"].inventory["tongue"] += bill["spare_parts"]["tongue"]
 
   def get_max(self, index):
     maxes = [9, 2000, 99, 99]

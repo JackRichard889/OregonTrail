@@ -26,6 +26,7 @@ class Date:
     FOG = 3
   
   def __init__(self, month, day):
+    self.__weather = {}
     year = 1848
     month_temp = month
     if month_temp < 1:
@@ -70,22 +71,27 @@ class Date:
     return seasons[season]
 
   def get_weather(self):
-    weather = Date.Weather.NONE
-    if self.get_season() == Date.Season.WINTER:
-      weather = Date.Weather.SNOW
-    elif self.get_season() == Date.Season.FALL:
-      weather = Date.Weather.FOG
-    elif self.get_season() == Date.Season.SPRING:
-      weather = Date.Weather.RAIN
-
-    if randint(0, 2) == 0:
-      return weather
+    if (self.get_date() in self.__weather.keys()):
+      return self.__weather[self.get_date()]
     else:
-      return Date.Weather.NONE
+      weather = Date.Weather.NONE
+      if self.get_season() == Date.Season.WINTER:
+        weather = Date.Weather.SNOW
+      elif self.get_season() == Date.Season.FALL:
+        weather = Date.Weather.FOG
+      elif self.get_season() == Date.Season.SPRING:
+        weather = Date.Weather.RAIN
+
+      if randint(0, 2) == 0:
+        self.__weather[self.get_date()] = weather
+        return weather
+      else:
+        self.__weather[self.get_date()] = Date.Weather.NONE
+        return Date.Weather.NONE
 
   def get_formatted_weather(self, weather):
-    weathers = {Date.Weather.NONE: "Clear", Date.Weather.RAIN: "Rain",
-          Date.Weather.SNOW: "Snow", Date.Weather.FOG: "Fog"}
+    weathers = {Date.Weather.NONE: "clear", Date.Weather.RAIN: "rain",
+          Date.Weather.SNOW: "snow", Date.Weather.FOG: "fog"}
     if self.__date is None:
       raise NoDateException("FATAL! No date provided!")
       return None

@@ -60,3 +60,20 @@ def random_name():
 # Copyright 2020
 def calculate_bill(items, prices={"oxen": 40.00, "food": 0.20, "clothing": 10.00, "ammunition": 2.00, "spare_parts":{"wheel": 10.00, "axel": 10.00, "tongue": 10.00}}):
   return (items["oxen"] * prices["oxen"]) + (items["food"] * prices["food"]) + (items["clothing"] * prices["clothing"]) + (items["ammunition"] * prices["ammunition"]) + (items["spare_parts"]["wheel"] * prices["spare_parts"]["wheel"]) + (items["spare_parts"]["axel"] * prices["spare_parts"]["axel"]) + (items["spare_parts"]["tongue"] * prices["spare_parts"]["tongue"])
+
+# Overall Health Function
+# By Jack Richard
+# Copyright 2020
+def get_overall_health(person_list):
+  health = 0
+  maxHealth = 0
+  for person in person_list:
+    health += person.health
+    maxHealth += 10
+  overall = health/maxHealth
+  if overall < 0.3:
+    return 2
+  elif overall < 0.7:
+    return 1
+  else:
+    return 0

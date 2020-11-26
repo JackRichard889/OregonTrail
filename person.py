@@ -42,6 +42,7 @@ class DiseaseList(Enum):
 class Person:
     def __init__(self, name, is_main_person, alive, occupation=-1):
         self.name = name
+        self.health = 10
         self.is_main_person = is_main_person
         self.diseases = {}
         self.alive = alive

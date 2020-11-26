@@ -1,5 +1,4 @@
 from screens.screen import Screen
-from screens.trail.options_screen import OptionsScreen
 import pygame
 
 class TrailScreen(Screen):
