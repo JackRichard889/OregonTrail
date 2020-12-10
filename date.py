@@ -34,7 +34,7 @@ class Date:
     day_temp = day
     if day_temp < 1:
       day_temp = randint(1, 25)
-    self.__date = datetime.datetime(year, month_temp, day_temp)
+    self.__date = datetime.datetime.combine(datetime.datetime(year, month_temp, day_temp), datetime.time(12, 0, 0))
 
   def get_date(self):
     if self.__date is None:

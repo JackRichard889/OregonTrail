@@ -1,5 +1,7 @@
 from screens.screen import Screen
 import pygame
+from environment import Ground
+from skybox import *
 
 class TrailScreen(Screen):
   def __init__(self, data):
@@ -10,9 +12,10 @@ class TrailScreen(Screen):
 
   def render(self, screen):
     WHITE = (255, 255, 255)
-    background = (0, 0, 0)
     font = pygame.font.Font('font/font.ttf', 15)
-    screen.fill(background)
+    i = 500
+    render_skybox(screen, self.data["date"].get_date().time())
+    screen.blit(Ground.render(self.data["environments"]), (-self.data["trailLength"] + i, 0))
 
   def process_input(self, key):
     print(key)
